@@ -25,7 +25,7 @@
   </head>
   <body>
     <!--MAIN CONTAINER-->
-    <div class="main-container">
+    <div class="main-container" id="main-container">
       <!--Right side-->
       <div class="right-side">
         <!--About me-->
@@ -428,12 +428,48 @@
             <li class="tech-skills-item">
               <span class="tech-skills-text">GTD</span>
             </li>
-            <li class="tech-skills-item">
+            <li class="teamwork-skills-item">
               <span class="tech-skills-text">Teamwork</span>
             </li>
           </ul>
         </div>
+        <button class="generatePDF" onclick="generatePDF()">
+          Generate PDF
+        </button>
       </aside>
     </div>
   </body>
+
+  <!--Scripts-->
+  <script src="/js/html2pdf.bundle.min.js"></script>
+
+  <script type="text/javascript">
+    function generatePDF() {
+      const element = document.getElementById(
+        "main-container"
+      );
+      const sideicon =
+        document.getElementsByClassName("sideicon");
+
+      setTimeout(() => {
+        html2pdf(element, {
+          margin: [2, 0, 2, 0],
+          filename: "Mateusz_Kowalski_Resume.pdf",
+          image: { type: "jpg", quality: 0.6 },
+          html2canvas: {
+            scale: 2,
+            ignoreElements: sideicon,
+            logging: true,
+            dpi: 1200,
+            letterRendering: true,
+          },
+          jsPDF: {
+            unit: "mm",
+            format: "letter",
+            orientation: "landscape",
+          },
+        });
+      }, 100);
+    }
+  </script>
 </html>
