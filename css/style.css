@@ -95,7 +95,8 @@ body {
 }
 
 .projects-list-link:hover,
-.projects-list-link:focus {
+.projects-list-link:focus,
+.projects-list-link:visited {
 	color: #ff6b08;
 }
 
@@ -193,6 +194,14 @@ body {
 
 .contacts-tel {
 	margin-bottom: 7px;
+}
+
+.github-profile {
+	color: #f5f7fa;
+	padding-left: 10px;
+}
+.github-profile:visited {
+	color: #ff6b08;
 }
 
 .tech-skills-item {
